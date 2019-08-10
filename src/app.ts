@@ -1,7 +1,5 @@
-//import { example } from './example'
-import { getMysqlData } from './getMysqlData'
+import { init } from './expressServer'
 
 export function main(){
-    //example();
-    getMysqlData();
+    init()
 }

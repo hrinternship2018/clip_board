@@ -5,7 +5,8 @@
     "outDir": "artifact",
     "rootDir": "src",
     "sourceMap": true,
-    "types" : ["node"]
+    "types" : ["node"],
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules",

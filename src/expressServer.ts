@@ -10,7 +10,7 @@ export function init(){
 
     app.post('/post', function (req, res) {
         console.log(req.headers.text)
-        content = (req.headers.text || '') as string
+        content = decodeURIComponent( (req.headers.text || '') as string )
         res.send('posted')
     })
 

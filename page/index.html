@@ -8,7 +8,7 @@
             var textarea = document.getElementsByTagName("textarea")[0];
             var http = new XMLHttpRequest()
             http.open("POST", "/post");
-            http.setRequestHeader('text', textarea.value)
+            http.setRequestHeader('text', encodeURIComponent(textarea.value))
             http.send();
         }
 

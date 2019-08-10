@@ -1,5 +1,7 @@
-# nodejs_server
+# online clip board
 
+サーバーに文字列をポストして、複数の端末上でクリップボード的な使い方をするプログラム。herokuにそのままデプロイできるので個人用に使える !
+![screen shot](screen.png "screen shot")
 
 ## init
 ```

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>online clip board</title>
+    <meta charset="UTF-8">
+    <script>
+        function onSubmit(){
+            var textarea = document.getElementsByTagName("textarea")[0];
+            var http = new XMLHttpRequest()
+            http.open("POST", "/post");
+            http.setRequestHeader('text', textarea.value)
+            http.send();
+        }
+
+        function onCatch(){
+            var textarea = document.getElementsByTagName("textarea")[0];
+            var http = new XMLHttpRequest()
+            http.open("GET", "/data");
+            http.send();
+            http.onload = function () {
+                textarea.value = http.responseText
+            };
+        }
+
+        function onCopy(){
+            var textarea = document.getElementsByTagName("textarea")[0];
+            textarea.select();
+            document.execCommand("copy");
+            textarea.blur();
+        }
+
+        function onPaste(){
+            var textarea = document.getElementsByTagName("textarea")[0];
+            textarea.focus()
+            document.execCommand("paste");
+        }
+    </script>
+</head>
+<body>
+    <textarea name="clip" rows="4" cols="40"></textarea><br>
+    <button onclick="onSubmit()">送信</button>
+    <button onclick="onCatch()">受信</button>
+    <button onclick="onCopy()">コピー</button>
+    <button onclick="onPaste()">ペースト</button>
+</body>
+</html>

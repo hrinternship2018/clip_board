@@ -4,9 +4,7 @@ export function init(){
     const app = express()
     let content = ''
 
-    app.get('/', function (req, res) {
-        res.sendFile(process.cwd() + '/page/index.html')
-    })
+    app.use('/',express.static(process.cwd() + '/page'))
 
     app.post('/post', function (req, res) {
         console.log(req.headers.text)

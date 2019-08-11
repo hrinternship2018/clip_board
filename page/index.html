@@ -3,48 +3,23 @@
 <head>
     <title>online clip board</title>
     <meta charset="UTF-8">
-    <script>
-        function onSubmit(){
-            var textarea = document.getElementsByTagName("textarea")[0];
-            var http = new XMLHttpRequest()
-            http.open("POST", "/post");
-            http.setRequestHeader('text', encodeURIComponent(textarea.value))
-            http.send();
-        }
-
-        function onCatch(){
-            var textarea = document.getElementsByTagName("textarea")[0];
-            var http = new XMLHttpRequest()
-            http.open("GET", "/data");
-            http.send();
-            http.onload = function () {
-                textarea.value = http.responseText
-            };
-        }
-
-        function onCopy(){
-            var textarea = document.getElementsByTagName("textarea")[0];
-            textarea.select();
-            document.execCommand("copy");
-            textarea.blur();
-        }
-
-        function onPaste(){
-            var textarea = document.getElementsByTagName("textarea")[0];
-            textarea.focus()
-            document.execCommand("paste");
-        }
-
-        window.onload = function(){
-            onCatch()
-        }
-    </script>
+    <meta name="viewport" content="width=550" >
+    <script type="text/javascript" src="script.js"></script>
 </head>
-<body>
-    <textarea name="clip" rows="4" cols="40"></textarea><br>
-    <button onclick="onSubmit()">送信</button>
-    <button onclick="onCatch()">受信</button>
-    <button onclick="onCopy()">コピー</button>
-    <button onclick="onPaste()">ペースト</button>
+<body style="padding: 0px; margin: 0px">
+    <div style='height: 10px'></div>
+    <div style="display: flex; flex-direction: row ; justify-content: center;">
+        <div style="flex: 1"></div>
+        <div style="width: 500px">
+            <textarea name="clip" rows="7" style="width: 100%; resize: none; border-radius: 5px"></textarea>
+            <div style="display: flex; flex-direction: row ; justify-content: space-around">
+                <button style="flex: 1; margin: 3px; border-radius: 5px" onclick="onSubmit()">送信</button>
+                <button style="flex: 1; margin: 3px; border-radius: 5px" onclick="onCatch()">受信</button>
+                <button style="flex: 1; margin: 3px; border-radius: 5px" onclick="onCopy()">コピー</button>
+                <button style="flex: 1; margin: 3px; border-radius: 5px" onclick="onPaste()">ペースト</button>
+            </div>
+        </div>
+        <div style="flex: 1"></div>
+    </div>
 </body>
 </html>
